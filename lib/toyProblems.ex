@@ -4,7 +4,7 @@ defmodule ToyProblems do
   ##### This document holds solutions to toy problems solved in Elixir, mainly from [CodeWars.com](https://www.codewars.com).
   """
   def main() do
-    IO.inspect is_uppercase?("DDD #DDD")
+    # IO.inspect(is_uppercase?("DDD #DDD"))
   end
 
   @doc """
@@ -22,7 +22,7 @@ defmodule ToyProblems do
   """
   def count_sheeps(sheeps), do: Enum.reduce(sheeps, 0, fn(el, acc) ->
     cond do
-      el==true -> acc+1
+      el == true -> acc + 1
       true -> acc
     end
   end)
@@ -32,7 +32,7 @@ defmodule ToyProblems do
   """
   def get_count(str), do: Enum.reduce(String.graphemes(str), 0, fn(el, acc) ->
     cond do
-      el =~ ~r/[aeuio]/i -> acc+1
+      el =~ ~r/[aeuio]/i -> acc + 1
       true -> acc
     end
   end)

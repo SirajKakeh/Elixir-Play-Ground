@@ -18,12 +18,12 @@ defmodule Elixirplayground do
 
   def find(path \\ ".") do
     Enum.map(File.ls!(path), fn (el) -> 
-      if("#{path}/#{el}" |> File.dir?) do
-        IO.puts path <> "/" <> el        
+      if "#{path}/#{el}" |> File.dir? do
+        # IO.puts path <> "/" <> el
         find("#{path}/#{el}")
       else
-        if(String.match?(el, ~r/.srj/)) do
-          "#{path}/#{el}"
+        if(String.match?(el, ~r/.srj/) && path != ".") do
+          File.rename("#{path}/#{el}", "./#{el}")
           # IO.puts("fooooooooooooooooooooooound it at #{path}/#{el}")
         else
           []
@@ -79,6 +79,6 @@ defmodule Elixirplayground do
   # end
 end
 
-# Elixirplayground.find(".")
+Elixirplayground.find(".")
 # IO.puts Filesearch.ls_r(File.cwd!())
 # Elixirplayground.testRegex(".aasiakllprime/ujgnwf.srj", ~r/.srj/)
