@@ -4,12 +4,13 @@ defmodule Elixirplayground do
 
   @doc """
   """
-  def find(path \\ ".") do
+  def find(path \\ ".", root \\ "") do
+    if(root == "", do: root = path)
     Enum.map(File.ls!(path), fn (el) -> 
       if "#{path}/#{el}" |> File.dir? do
-        find("#{path}/#{el}")
+        find("#{path}/#{el}", root)
       else
-        if(String.match?(el, ~r/.srj/) && path != ".") do
+        if(String.match?(el, ~r/.srj|.Srj|.SRJ/) && path != root) do
           File.rename("#{path}/#{el}", "./#{el}")
         else
           []
