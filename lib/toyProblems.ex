@@ -4,7 +4,7 @@ defmodule ToyProblems do
   ##### This document holds solutions to toy problems solved in Elixir, mainly from [CodeWars.com](https://www.codewars.com).
   """
   def main() do
-    # IO.inspect(is_uppercase?("DDD #DDD"))
+    IO.inspect(is_uppercase?("DDD #DDD"))
   end
 
   @doc """
@@ -42,4 +42,4 @@ defmodule ToyProblems do
   """
   def is_uppercase?(str), do: str =~ ~r/^[^a-z]*$/
 end
-ToyProblems.main()
+# ToyProblems.main()
